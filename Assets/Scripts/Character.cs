@@ -7,8 +7,13 @@ using UnityEngine.UIElements;
 public class Character : MonoBehaviour
 {
     public Camera cam;
+
+    public uint maxItems = 4;
+    private uint itemCount = 0;
+    public Food[] foodItems; 
     private NavMeshAgent navAgent;
     private Food foodToBuy = null;
+    
     
     
 #if UNITY_EDITOR
@@ -24,7 +29,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        foodItems = new Food[maxItems];
     }
 
     // Update is called once per frame
@@ -47,8 +52,15 @@ public class Character : MonoBehaviour
             {
                 if (hit.transform.tag == "aisle")
                 {
-                    foodToBuy = hit.transform.gameObject.GetComponent<Aisle>().food;
-                    Debug.Log("Food select : " + foodToBuy.ToString());
+                    if (itemCount < maxItems)
+                    {
+                        foodToBuy = hit.transform.gameObject.GetComponent<Aisle>().food;
+                        Debug.Log("Food select : " + foodToBuy.ToString());
+                    }
+                    else
+                    {
+                        Debug.Log("Inventory full"); 
+                    }
                 }
                 else
                 {
@@ -68,9 +80,9 @@ public class Character : MonoBehaviour
             (!navAgent.hasPath || navAgent.velocity.sqrMagnitude == 0f))
         {
             Debug.Log("Try to buy food : " + foodToBuy.ToString());
+            foodItems[itemCount] = foodToBuy;
+            itemCount++;
             foodToBuy = null;
         }
-        
-
     }
 }

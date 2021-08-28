@@ -7,13 +7,20 @@ using UnityEngine.UIElements;
 public class Character : MonoBehaviour
 {
     public Camera cam;
-    public NavMeshAgent nav;
+    private NavMeshAgent navAgent;
+    private Food foodToBuy = null;
+    
     
 #if UNITY_EDITOR
     [Header("Debug")]
     [SerializeField] protected bool m_useMobileInput = false;
 #endif
-    
+
+    void Awake()
+    {
+        navAgent = GetComponent<NavMeshAgent>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +45,32 @@ public class Character : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                nav.SetDestination(hit.point);
+                if (hit.transform.tag == "aisle")
+                {
+                    foodToBuy = hit.transform.gameObject.GetComponent<Aisle>().food;
+                    Debug.Log("Food select : " + foodToBuy.ToString());
+                }
+                else
+                {
+                    Debug.Log("Food unselect");
+                    foodToBuy = null;
+                }
+                
+                navAgent.SetDestination(hit.point);
                 Debug.DrawLine(cam.transform.position, hit.point, Color.green, 1f);
             }
-        }    
+        }
+        
+        // Check if we've reached the destination
+        if (foodToBuy &&
+            !navAgent.pathPending &&
+            navAgent.remainingDistance <= navAgent.stoppingDistance &&
+            (!navAgent.hasPath || navAgent.velocity.sqrMagnitude == 0f))
+        {
+            Debug.Log("Try to buy food : " + foodToBuy.ToString());
+            foodToBuy = null;
+        }
+        
+
     }
 }

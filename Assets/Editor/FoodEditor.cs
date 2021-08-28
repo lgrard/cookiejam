@@ -15,11 +15,29 @@ public class FoodEditor : Editor
         Target = (Food) target;
     }
     
+    Editor gameObjectEditor;
+    Texture2D previewBackgroundTexture;
+    
     // OnInspector GUI
     public override void OnInspectorGUI()
     {
         Header("Identity");
-        
+
+        EditorGUILayout.BeginHorizontal();
+        {
+            GUIStyle bgColor = new GUIStyle();
+            bgColor.normal.background = previewBackgroundTexture;
+
+            //display the mesh
+            if (Target.Mesh != null)
+            {
+                if (gameObjectEditor == null)
+                    gameObjectEditor = Editor.CreateEditor(Target.Mesh);
+
+                gameObjectEditor.OnInteractivePreviewGUI(GUILayoutUtility.GetRect(100, 100), bgColor);
+            }
+        }
+        EditorGUILayout.BeginVertical();
         {
             EditorGUILayout.BeginHorizontal();
             Target.Name = EditorGUILayout.TextField(new GUIContent("Name"), Target.Name);
@@ -27,10 +45,21 @@ public class FoodEditor : Editor
             {
                 Target.Name = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(Target));
             }
-
             EditorGUILayout.EndHorizontal();
         }
         
+        {
+            EditorGUI.BeginChangeCheck();
+            Target.Mesh = (Mesh)EditorGUILayout.ObjectField("Mesh" ,Target.Mesh, typeof(Mesh), true);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                gameObjectEditor = Editor.CreateEditor(Target.Mesh);
+            }
+        }
+        EditorGUILayout.EndVertical();
+        EditorGUILayout.EndHorizontal();
+
         Header("Food attributes");
         
         {

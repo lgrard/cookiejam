@@ -7,7 +7,8 @@ using UnityEngine;
 public class Food : ScriptableObject
 {
     public string Name;
-    
+    public Mesh Mesh;
+
     public float Fibers;
     public float Energy;
     public float Protein;
@@ -15,7 +16,8 @@ public class Food : ScriptableObject
     public float Calcium;
     public float Fat;
     public float Sugar;
-    
+
+
     //[ContextMenu("Use file name as name")]
     //public void FileNameToNameField()
     //{

@@ -64,7 +64,7 @@ public class FoodEditor : Editor
         
         {
             EditorGUILayout.BeginHorizontal();
-            const float max = 500f;
+            const float max = 350f;
             Target.Energy = EditorGUILayout.Slider(new GUIContent("Energy", "Kcal"), Target.Energy, 0f, max);
 
             GUI.contentColor = GetColorStepOfRangedValue(Target.Energy, max);
@@ -75,7 +75,7 @@ public class FoodEditor : Editor
 
         {
             EditorGUILayout.BeginHorizontal();
-            const float max = 40f;
+            const float max = 10f;
             Target.Fibers = EditorGUILayout.Slider(new GUIContent("Fiber", "g"), Target.Fibers, 0f, max);
             
             GUI.contentColor = GetColorStepOfRangedValue(Target.Fibers, max);
@@ -86,7 +86,7 @@ public class FoodEditor : Editor
 
         {
             EditorGUILayout.BeginHorizontal();
-            const float max = 70f;
+            const float max = 30f;
             Target.Protein = EditorGUILayout.Slider(new GUIContent("Protein", "g"), Target.Protein, 0f, max);
             
             GUI.contentColor = GetColorStepOfRangedValue(Target.Protein, max);
@@ -97,7 +97,7 @@ public class FoodEditor : Editor
 
         {
             EditorGUILayout.BeginHorizontal();
-            const float max = 2000f;
+            const float max = 230f;
             Target.Water = EditorGUILayout.Slider(new GUIContent("Water", "mL"), Target.Water, 0f, max);
             
             GUI.contentColor = GetColorStepOfRangedValue(Target.Water, max);
@@ -108,7 +108,7 @@ public class FoodEditor : Editor
 
         {
             EditorGUILayout.BeginHorizontal();
-            const float max = 1200f;
+            const float max = 250f;
             Target.Calcium = EditorGUILayout.Slider(new GUIContent("Calcium", "mg"), Target.Calcium, 0f, max);
             
             GUI.contentColor = GetColorStepOfRangedValue(Target.Calcium, max);
@@ -119,7 +119,7 @@ public class FoodEditor : Editor
 
         {
             EditorGUILayout.BeginHorizontal();
-            const float max = 75f;
+            const float max = 15f;
             Target.Fat = EditorGUILayout.Slider(new GUIContent("Fat", "g"), Target.Fat, 0f, max);
             
             GUI.contentColor = GetColorStepOfRangedValue(Target.Fat, max);

@@ -9,6 +9,8 @@ public class Aisle : MonoBehaviour
 
     private bool hasBeenPicked = false;
 
+    [SerializeField] private ParticleSystem collectionParticles;
+
     public Food PickFood()
     {
         if (hasBeenPicked)
@@ -17,6 +19,7 @@ public class Aisle : MonoBehaviour
         hasBeenPicked = true;
         foreach (Transform lPoints in shelfPoints)
             lPoints.gameObject.SetActive(false);
+        collectionParticles.Play();
 
         return food;
     }

@@ -53,7 +53,10 @@ public class GameManager : MonoBehaviour
     [Header("Game setting")]
     private EGameState GameState = EGameState.CHARACTER_INTRODUCTION;
 
-    
+    [Header("Global sound")]
+    public AudioSource AtmosphereSound; 
+    public AudioSource Music;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +71,7 @@ public class GameManager : MonoBehaviour
         ArticlePanel.Panel.SetActive(false);
 
         SetCharacterIntroGameState();
+        Music.Play();
     }
 
     void OpenArticlePopUp(Food Article)
@@ -157,6 +161,7 @@ public class GameManager : MonoBehaviour
 
     public void SetMarketGameState()
     {
+        AtmosphereSound.Play();
         MarketTimer = 0;
         GameCharacter.CanMove = true;
         SetGameState(EGameState.MARKET);
@@ -164,12 +169,14 @@ public class GameManager : MonoBehaviour
     
     public void SetCharacterIntroGameState()
     {
+        AtmosphereSound.Stop();
         GameCharacter.CanMove = false;
         SetGameState(EGameState.CHARACTER_INTRODUCTION);
     }
     
     public void SetScoreGameState()
     {
+        AtmosphereSound.Stop();
         ResetScoreItems();
         
         for (int i = 0; i < GameCharacter.itemCount; i++)

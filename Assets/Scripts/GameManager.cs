@@ -23,6 +23,14 @@ public class GameManager : MonoBehaviour
     public GameObject UICharachterIntro;
     public CharacterData[] CharacterDatas;
 
+    public Slider FibersNeedSlidersIntro;   
+    public Slider EnergyNeedSlidersIntro;   
+    public Slider ProteinNeedSlidersIntro;   
+    public Slider WaterNeedSlidersIntro;   
+    public Slider CalciumNeedSlidersIntro;   
+    public Slider FatNeedSlidersIntro;
+    public Slider SugarNeedSlidersIntro;
+    
     [Header("Market settings")]
     public GameObject UIMarket;
     [Tooltip("in second")]
@@ -44,7 +52,7 @@ public class GameManager : MonoBehaviour
     public Slider CalciumNeedSliders;   
     public Slider FatNeedSliders;
     public Slider SugarNeedSliders;
-    
+
     [Tooltip("In second")]
     public float itemGiveScoreDuration = 3f;
     private float tLerpScore = 0f;
@@ -191,6 +199,7 @@ public class GameManager : MonoBehaviour
         GameCharacter.CanMove = false;
         SetGameState(EGameState.CHARACTER_INTRODUCTION);
         GameCharacter.characterData = CharacterDatas[Random.Range(0, CharacterDatas.Length)];
+        UpdateIntroSliders();
     }
     
     public void SetScoreGameState()
@@ -211,6 +220,30 @@ public class GameManager : MonoBehaviour
         AddItemToScore();
     }
 
+    void UpdateIntroSliders()
+    {
+        FibersNeedSlidersIntro.maxValue = GameCharacter.characterData.FibersNeed;
+        FibersNeedSlidersIntro.value = GameCharacter.characterData.CurrentFibers;
+        
+        EnergyNeedSlidersIntro.maxValue = GameCharacter.characterData.EnergyNeed;
+        EnergyNeedSlidersIntro.value = GameCharacter.characterData.CurrentEnergy;
+        
+        ProteinNeedSlidersIntro.maxValue = GameCharacter.characterData.ProteinNeed;
+        ProteinNeedSlidersIntro.value = GameCharacter.characterData.CurrentProtein;
+        
+        WaterNeedSlidersIntro.maxValue = GameCharacter.characterData.WaterNeed;
+        WaterNeedSlidersIntro.value = GameCharacter.characterData.CurrentWater;
+        
+        CalciumNeedSlidersIntro.maxValue = GameCharacter.characterData.CalciumNeed;
+        CalciumNeedSlidersIntro.value = GameCharacter.characterData.CurrentCalcium;
+                
+        FatNeedSlidersIntro.maxValue = GameCharacter.characterData.FatNeed;
+        FatNeedSlidersIntro.value = GameCharacter.characterData.CurrentFat;
+                
+        SugarNeedSlidersIntro.maxValue = GameCharacter.characterData.SugarNeed;
+        SugarNeedSlidersIntro.value = GameCharacter.characterData.CurrentSugar;
+    }
+    
     void UpdateScoresSliders()
     {
         FibersNeedSliders.maxValue = GameCharacter.characterData.FibersNeed;

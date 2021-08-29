@@ -116,7 +116,7 @@ public class Character : MonoBehaviour
                 {
                     if (itemCount < maxItems)
                     {
-                        m_foodToBuy = hit.transform.gameObject.GetComponent<Aisle>().food;
+                        m_foodToBuy = hit.transform.gameObject.GetComponent<Aisle>().PickFood();
                         Debug.Log("Food select : " + m_foodToBuy.ToString());
                     }
                     else

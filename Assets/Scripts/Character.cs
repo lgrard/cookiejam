@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class Character : MonoBehaviour
@@ -13,9 +15,9 @@ public class Character : MonoBehaviour
     public Food[] foodItems; 
     private NavMeshAgent navAgent;
     private Food foodToBuy = null;
-    
-    
-    
+    private bool shouldEscape = false;
+    public UnityEvent OnEscape;
+
 #if UNITY_EDITOR
     [Header("Debug")]
     [SerializeField] protected bool m_useMobileInput = false;
@@ -50,6 +52,9 @@ public class Character : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                foodToBuy = null;
+                shouldEscape = false;
+                
                 if (hit.transform.tag == "aisle")
                 {
                     if (itemCount < maxItems)
@@ -62,10 +67,10 @@ public class Character : MonoBehaviour
                         Debug.Log("Inventory full"); 
                     }
                 }
-                else
+                else if (hit.transform.tag == "escape")
                 {
-                    Debug.Log("Food unselect");
-                    foodToBuy = null;
+                    Debug.Log("Should escape request"); 
+                    shouldEscape = true;
                 }
                 
                 navAgent.SetDestination(hit.point);
@@ -74,15 +79,23 @@ public class Character : MonoBehaviour
         }
         
         // Check if we've reached the destination
-        if (foodToBuy &&
-            !navAgent.pathPending &&
+        if (!navAgent.pathPending &&
             navAgent.remainingDistance <= navAgent.stoppingDistance &&
             (!navAgent.hasPath || navAgent.velocity.sqrMagnitude == 0f))
         {
-            Debug.Log("Try to buy food : " + foodToBuy.ToString());
-            foodItems[itemCount] = foodToBuy;
-            itemCount++;
-            foodToBuy = null;
+            if (foodToBuy)
+            {
+                Debug.Log("Try to buy food : " + foodToBuy.ToString());
+                foodItems[itemCount] = foodToBuy;
+                itemCount++;
+                foodToBuy = null;
+            }
+            else if(shouldEscape)
+            {
+                Debug.Log("Escape"); 
+                OnEscape?.Invoke();
+                shouldEscape = false;
+            }
         }
     }
 }

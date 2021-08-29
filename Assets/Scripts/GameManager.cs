@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private float MarketTimer = 0f;
     public Slider TimerSilder;
     public Character GameCharacter;
+    public ArticlePanelController ArticlePanel;
     
     
     [Header("Score setting")]
@@ -59,6 +60,31 @@ public class GameManager : MonoBehaviour
         SwitchUIWithGameState();
         TimerSilder.maxValue = MaxMarketTimer;
         ItemRotationSettings = new ItemRotationSetting[GameCharacter.maxItems];
+
+        ArticlePanel.OnBuyItem.AddListener(BuyItemAndCloseArticlePopUp);
+        ArticlePanel.OnClose.AddListener(CloseArticlePopUp);
+        
+        GameCharacter.OnTryBuyArticle.AddListener(OpenArticlePopUp);
+        ArticlePanel.Panel.SetActive(false);
+
+        SetCharacterIntroGameState();
+    }
+
+    void OpenArticlePopUp(Food Article)
+    {
+        ArticlePanel.RegisterArticleToBuyAndOpenPanel(Article);
+        GameCharacter.CanMove = false;
+    }
+    
+    void BuyItemAndCloseArticlePopUp(Food Article)
+    {
+        GameCharacter.BuyArticle(Article);
+        CloseArticlePopUp();
+    }
+
+    void CloseArticlePopUp()
+    {
+        GameCharacter.CanMove = true;
     }
 
     // Update is called once per frame
@@ -132,13 +158,13 @@ public class GameManager : MonoBehaviour
     public void SetMarketGameState()
     {
         MarketTimer = 0;
-        GameCharacter.enabled = true;
+        GameCharacter.CanMove = true;
         SetGameState(EGameState.MARKET);
     }
     
     public void SetCharacterIntroGameState()
     {
-        GameCharacter.enabled = false;
+        GameCharacter.CanMove = false;
         SetGameState(EGameState.CHARACTER_INTRODUCTION);
     }
     
@@ -154,7 +180,7 @@ public class GameManager : MonoBehaviour
 
         UpdateScoresSliders();
         
-        GameCharacter.enabled = false;
+        GameCharacter.CanMove = false;
         SetGameState(EGameState.SCORE);
         AddItemToScore();
     }

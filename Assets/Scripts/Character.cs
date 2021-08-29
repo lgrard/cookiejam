@@ -42,6 +42,8 @@ public class Character : MonoBehaviour
     public CharacterData characterData;
     
     public UnityEvent OnEscape;
+    public UnityEvent<Food> OnTryBuyArticle;
+    public bool CanMove = false;
     
 
 #if UNITY_EDITOR
@@ -59,8 +61,7 @@ public class Character : MonoBehaviour
     {
         Reset();
     }
-
-
+    
     void GenerateRandomCharaterData()
     {
         characterData = ScriptableObject.CreateInstance<CharacterData>();
@@ -97,7 +98,7 @@ public class Character : MonoBehaviour
         bool isClic = Input.touchCount == 1;
 #endif        
 
-        if (isClic)
+        if (isClic && CanMove)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -138,8 +139,7 @@ public class Character : MonoBehaviour
             if (m_foodToBuy)
             {
                 Debug.Log("Try to buy food : " + m_foodToBuy.ToString());
-                foodItems[itemCount] = m_foodToBuy;
-                itemCount++;
+                OnTryBuyArticle?.Invoke(m_foodToBuy);
                 m_foodToBuy = null;
             }
             else if(m_shouldEscape)
@@ -157,5 +157,12 @@ public class Character : MonoBehaviour
         itemCount = 0;
         m_foodToBuy = null;
         m_shouldEscape = false;
+    }
+
+    public void BuyArticle(Food ArticleToBuy)
+    {
+        Debug.Log(ArticleToBuy.ToString() +  itemCount + " " + foodItems.Length);
+        foodItems[itemCount] = ArticleToBuy;
+        itemCount++;
     }
 }

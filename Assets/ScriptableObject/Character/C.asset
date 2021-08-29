@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfaf45c0e9609bf43b7708516566a4c5, type: 3}
-  m_Name: CharacterData
+  m_Name: C
   m_EditorClassIdentifier: 
+  Name: 
   MeshPrefab: {fileID: 0}
-  FibersNeed: 0
-  EnergyNeed: 0
-  ProteinNeed: 0
-  WaterNeed: 0
-  CalciumNeed: 0
-  FatNeed: 0
-  SugarNeed: 0
-  CurrentFibers: 0
-  CurrentEnergy: 0
-  CurrentProtein: 0
-  CurrentWater: 0
-  CurrentCalcium: 0
-  CurrentFat: 0
-  CurrentSugar: 0
+  FibersNeed: 45
+  EnergyNeed: 2000
+  ProteinNeed: 60
+  WaterNeed: 2500
+  CalciumNeed: 1200
+  FatNeed: 75
+  SugarNeed: 275
+  CurrentFibers: 30
+  CurrentEnergy: 750
+  CurrentProtein: 45
+  CurrentWater: 1500
+  CurrentCalcium: 750
+  CurrentFat: 10
+  CurrentSugar: 100

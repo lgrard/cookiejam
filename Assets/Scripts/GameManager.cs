@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private float MarketTimer = 0f;
     public Slider TimerSilder;
     public Character GameCharacter;
+    public ArticlePanelController ArticlePanel;
     
     
     [Header("Score setting")]
@@ -59,6 +60,31 @@ public class GameManager : MonoBehaviour
         SwitchUIWithGameState();
         TimerSilder.maxValue = MaxMarketTimer;
         ItemRotationSettings = new ItemRotationSetting[GameCharacter.maxItems];
+
+        ArticlePanel.OnBuyItem.AddListener(BuyItemAndCloseArticlePopUp);
+        ArticlePanel.OnClose.AddListener(CloseArticlePopUp);
+        
+        GameCharacter.OnTryBuyArticle.AddListener(OpenArticlePopUp);
+        ArticlePanel.Panel.SetActive(false);
+
+        SetCharacterIntroGameState();
+    }
+
+    void OpenArticlePopUp(Food Article)
+    {
+        ArticlePanel.RegisterArticleToBuyAndOpenPanel(Article);
+        GameCharacter.CanMove = false;
+    }
+    
+    void BuyItemAndCloseArticlePopUp(Food Article)
+    {
+        GameCharacter.BuyArticle(Article);
+        CloseArticlePopUp();
+    }
+
+    void CloseArticlePopUp()
+    {
+        GameCharacter.CanMove = true;
     }
 
     // Update is called once per frame
@@ -80,11 +106,14 @@ public class GameManager : MonoBehaviour
                 TimerSilder.value = MarketTimer;
                 break;
             case EGameState.SCORE:
+                if (GameCharacter.itemCount == 0)
+                    SetCharacterIntroGameState();
+                
                 for (uint i = currentItem; i < GameCharacter.itemCount; i++)
                 {
                     UIItemPlace[i].rotation = Quaternion.Lerp(UIItemPlace[i].rotation, UIItemPlace[i].rotation * ItemRotationSettings[i].itemRotationAngle, Time.deltaTime * ItemRotationSettings[i].rotationSpeed);
                 }
-                
+
                 tLerpScore += Time.deltaTime / itemGiveScoreDuration;
                 if (tLerpScore > 1f)
                     tLerpScore = 1f;
@@ -96,6 +125,7 @@ public class GameManager : MonoBehaviour
                 CalciumNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentCalcium, GameCharacter.characterData.CurrentCalcium + GameCharacter.foodItems[currentItem].Calcium, tLerpScore);
                 FatNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFat, GameCharacter.characterData.CurrentFat + GameCharacter.foodItems[currentItem].Fat, tLerpScore);
                 SugarNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentSugar, GameCharacter.characterData.CurrentSugar + GameCharacter.foodItems[currentItem].Sugar, tLerpScore);
+                
 
                 if (tLerpScore == 1f)
                 {
@@ -128,13 +158,13 @@ public class GameManager : MonoBehaviour
     public void SetMarketGameState()
     {
         MarketTimer = 0;
-        GameCharacter.enabled = true;
+        GameCharacter.CanMove = true;
         SetGameState(EGameState.MARKET);
     }
     
     public void SetCharacterIntroGameState()
     {
-        GameCharacter.enabled = false;
+        GameCharacter.CanMove = false;
         SetGameState(EGameState.CHARACTER_INTRODUCTION);
     }
     
@@ -150,7 +180,7 @@ public class GameManager : MonoBehaviour
 
         UpdateScoresSliders();
         
-        GameCharacter.enabled = false;
+        GameCharacter.CanMove = false;
         SetGameState(EGameState.SCORE);
         AddItemToScore();
     }
@@ -208,7 +238,7 @@ public class GameManager : MonoBehaviour
 
             for (int childID = 0; childID < UIItemPlace[i].childCount; childID++)
             {
-                Destroy(UIItemPlace[i].GetChild(childID));
+                Destroy(UIItemPlace[i].GetChild(childID).gameObject);
             }
         }
     }

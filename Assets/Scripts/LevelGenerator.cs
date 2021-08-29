@@ -19,8 +19,21 @@ public class LevelGenerator : MonoBehaviour
     private void Start()
     {        
         InitLevelContainer();
+    }
+
+    public void GenerateNewLevel()
+    {
+        Reset();
         GenerateLevel(3);
         UpdateNavigation();
+    }
+    
+    void Reset()
+    {
+        for (int i = 0; i < levelContainer.childCount; i++)
+        {
+            Destroy(levelContainer.GetChild(i).gameObject);
+        }
     }
 
     private void InitLevelContainer()
@@ -62,7 +75,7 @@ public class LevelGenerator : MonoBehaviour
     }
 
     /// Update Nav mesh data
-    private void UpdateNavigation()
+    public void UpdateNavigation()
     {
         navMeshDataInstance.Remove();
 

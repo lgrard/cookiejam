@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public Slider TimerSilder;
     public Character GameCharacter;
     public ArticlePanelController ArticlePanel;
+    public LevelGenerator leveleGenerator;
     
     
     [Header("Score setting")]
@@ -198,8 +199,9 @@ public class GameManager : MonoBehaviour
         AtmosphereSound.Stop();
         GameCharacter.CanMove = false;
         SetGameState(EGameState.CHARACTER_INTRODUCTION);
-        GameCharacter.characterData = CharacterDatas[Random.Range(0, CharacterDatas.Length)];
+        GameCharacter.characterData = ScriptableObject.Instantiate(CharacterDatas[Random.Range(0, CharacterDatas.Length)]);
         UpdateIntroSliders();
+        leveleGenerator.GenerateNewLevel();
     }
     
     public void SetScoreGameState()

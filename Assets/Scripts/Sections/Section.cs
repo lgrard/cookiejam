@@ -65,6 +65,12 @@ class Section : MonoBehaviour
         {
             int lRand = Random.Range(0, lList.Count);
             aisleList[i].food = lList[lRand];
+            foreach (Transform lPoints in aisleList[i].shelfPoints)
+            {
+                Instantiate(aisleList[i].food.MeshPrefab, lPoints);
+                lPoints.localScale *= Random.Range(1, 1.5f);
+                lPoints.Rotate(Vector3.up, Random.Range(-90, 90));
+            }
         }
     }
 }

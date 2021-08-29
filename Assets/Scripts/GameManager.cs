@@ -111,46 +111,65 @@ public class GameManager : MonoBehaviour
                 break;
             case EGameState.SCORE:
                 if (GameCharacter.itemCount == 0)
+                {
                     SetCharacterIntroGameState();
-                
-                for (uint i = currentItem; i < GameCharacter.itemCount; i++)
-                {
-                    UIItemPlace[i].rotation = Quaternion.Lerp(UIItemPlace[i].rotation, UIItemPlace[i].rotation * ItemRotationSettings[i].itemRotationAngle, Time.deltaTime * ItemRotationSettings[i].rotationSpeed);
                 }
-
-                tLerpScore += Time.deltaTime / itemGiveScoreDuration;
-                if (tLerpScore > 1f)
-                    tLerpScore = 1f;
-                
-                FibersNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFibers, GameCharacter.characterData.CurrentFibers + GameCharacter.foodItems[currentItem].Fibers, tLerpScore);
-                EnergyNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentEnergy, GameCharacter.characterData.CurrentEnergy + GameCharacter.foodItems[currentItem].Energy, tLerpScore);
-                ProteinNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentProtein, GameCharacter.characterData.CurrentProtein + GameCharacter.foodItems[currentItem].Protein, tLerpScore);
-                WaterNeedSliders.value =Mathf.Lerp(GameCharacter.characterData.CurrentWater, GameCharacter.characterData.CurrentWater + GameCharacter.foodItems[currentItem].Water, tLerpScore);
-                CalciumNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentCalcium, GameCharacter.characterData.CurrentCalcium + GameCharacter.foodItems[currentItem].Calcium, tLerpScore);
-                FatNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFat, GameCharacter.characterData.CurrentFat + GameCharacter.foodItems[currentItem].Fat, tLerpScore);
-                SugarNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentSugar, GameCharacter.characterData.CurrentSugar + GameCharacter.foodItems[currentItem].Sugar, tLerpScore);
-                
-
-                if (tLerpScore == 1f)
+                else
                 {
-                    GameCharacter.characterData.CurrentFibers = FibersNeedSliders.value;
-                    GameCharacter.characterData.CurrentEnergy = EnergyNeedSliders.value;
-                    GameCharacter.characterData.CurrentProtein = ProteinNeedSliders.value;
-                    GameCharacter.characterData.CurrentWater = WaterNeedSliders.value;
-                    GameCharacter.characterData.CurrentCalcium = CalciumNeedSliders.value;
-                    GameCharacter.characterData.CurrentFat = FatNeedSliders.value;
-                    GameCharacter.characterData.CurrentSugar = SugarNeedSliders.value;
-                        
-                    tLerpScore = 0f;
-                    if (++currentItem >= GameCharacter.itemCount)
+                    for (uint i = currentItem; i < GameCharacter.itemCount; i++)
                     {
-                        currentItem = 0;
-                        
-                        //TODO: Remove for smooth anim
-                        SetCharacterIntroGameState();
+                        UIItemPlace[i].rotation = Quaternion.Lerp(UIItemPlace[i].rotation,
+                            UIItemPlace[i].rotation * ItemRotationSettings[i].itemRotationAngle,
+                            Time.deltaTime * ItemRotationSettings[i].rotationSpeed);
+                    }
+
+                    tLerpScore += Time.deltaTime / itemGiveScoreDuration;
+                    if (tLerpScore > 1f)
+                        tLerpScore = 1f;
+
+                    FibersNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFibers,
+                        GameCharacter.characterData.CurrentFibers + GameCharacter.foodItems[currentItem].Fibers,
+                        tLerpScore);
+                    EnergyNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentEnergy,
+                        GameCharacter.characterData.CurrentEnergy + GameCharacter.foodItems[currentItem].Energy,
+                        tLerpScore);
+                    ProteinNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentProtein,
+                        GameCharacter.characterData.CurrentProtein + GameCharacter.foodItems[currentItem].Protein,
+                        tLerpScore);
+                    WaterNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentWater,
+                        GameCharacter.characterData.CurrentWater + GameCharacter.foodItems[currentItem].Water,
+                        tLerpScore);
+                    CalciumNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentCalcium,
+                        GameCharacter.characterData.CurrentCalcium + GameCharacter.foodItems[currentItem].Calcium,
+                        tLerpScore);
+                    FatNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFat,
+                        GameCharacter.characterData.CurrentFat + GameCharacter.foodItems[currentItem].Fat, tLerpScore);
+                    SugarNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentSugar,
+                        GameCharacter.characterData.CurrentSugar + GameCharacter.foodItems[currentItem].Sugar,
+                        tLerpScore);
+
+
+                    if (tLerpScore == 1f)
+                    {
+                        GameCharacter.characterData.CurrentFibers = FibersNeedSliders.value;
+                        GameCharacter.characterData.CurrentEnergy = EnergyNeedSliders.value;
+                        GameCharacter.characterData.CurrentProtein = ProteinNeedSliders.value;
+                        GameCharacter.characterData.CurrentWater = WaterNeedSliders.value;
+                        GameCharacter.characterData.CurrentCalcium = CalciumNeedSliders.value;
+                        GameCharacter.characterData.CurrentFat = FatNeedSliders.value;
+                        GameCharacter.characterData.CurrentSugar = SugarNeedSliders.value;
+
+                        tLerpScore = 0f;
+                        if (++currentItem >= GameCharacter.itemCount)
+                        {
+                            currentItem = 0;
+
+                            //TODO: Remove for smooth anim
+                            SetCharacterIntroGameState();
+                        }
                     }
                 }
-                
+
                 break;
             case EGameState.COUNT:
                 break;

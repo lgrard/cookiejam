@@ -174,7 +174,6 @@ public class Character : MonoBehaviour
                 Debug.Log("Try to buy food at aisle : " + m_aisle.food.ToString());
                 //Debug.Log("Try to buy food : " + m_foodToBuy.ToString());
                 OnTryBuyArticle?.Invoke(m_aisle);
-                CharacterAnimator.SetTrigger("Pick");
                 m_aisle = null;
                 //m_foodToBuy = null;
             }
@@ -200,6 +199,7 @@ public class Character : MonoBehaviour
 
     public void BuyArticle(Food ArticleToBuy)
     {
+        CharacterAnimator.SetTrigger("Pick");
         foodItems[itemCount] = ArticleToBuy;
         itemCount++;
     }

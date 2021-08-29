@@ -5,16 +5,14 @@ using UnityEngine;
 public class Aisle : MonoBehaviour
 {
     public Food food;
-        
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<Transform> shelfPoints;
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmos()
     {
-        
+        if(shelfPoints != null)
+        {
+            foreach(Transform lPoints in shelfPoints)
+                Gizmos.DrawSphere(lPoints.position, 0.3f);
+        }
     }
 }

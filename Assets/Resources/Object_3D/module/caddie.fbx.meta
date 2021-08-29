@@ -1,20 +1,8 @@
 fileFormatVersion: 2
-guid: 4c8727bc11d9f1a4396f2e5c2ecaa4a1
+guid: 1ab0b8ef7b28ad945a8c79075661e8a8
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: 7451853634639236518
-    second: Plan.001|mur_simple.__angle_ext.001|mur_simple.__angle_ext|PlanAction|mu
-  - first:
-      74: 1040540930340678943
-    second: Plan.001|PlanAction
-  - first:
-      74: -5325134925377397329
-    second: Plan.001|sol_vide.001|sol_vide|PlanAction|sol_vide|PlanAction
-  - first:
-      74: -5253355306043155638
-    second: Plan.001|metarigAction
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2

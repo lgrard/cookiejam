@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52781881a8e37b04299c89c5d4bfdbca, type: 3}
   m_Name: yaourt
   m_EditorClassIdentifier: 
-  Name: 
-  Mesh: {fileID: 0}
+  Name: yaourt
+  MeshPrefab: {fileID: 919132149155446097, guid: d70324b8f95b6ff47b0be95bfd39fd1b,
+    type: 3}
   Fibers: 0
   Energy: 0
-  Protein: 0
-  Water: 0
-  Calcium: 0
-  Fat: 0
-  Sugar: 0
+  Protein: 5
+  Water: 108
+  Calcium: 159
+  Fat: 3
+  Sugar: 6

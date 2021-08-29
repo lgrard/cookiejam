@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52781881a8e37b04299c89c5d4bfdbca, type: 3}
   m_Name: pomme
   m_EditorClassIdentifier: 
-  Name: 
-  Mesh: {fileID: 0}
-  Fibers: 0
-  Energy: 0
+  Name: pomme
+  MeshPrefab: {fileID: 919132149155446097, guid: 2498800d67a7b84498d5badd864fceef,
+    type: 3}
+  Fibers: 2
+  Energy: 68
   Protein: 0
-  Water: 0
-  Calcium: 0
+  Water: 135
+  Calcium: 8
   Fat: 0
-  Sugar: 0
+  Sugar: 15

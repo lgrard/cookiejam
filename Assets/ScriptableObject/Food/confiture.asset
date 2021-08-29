@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52781881a8e37b04299c89c5d4bfdbca, type: 3}
   m_Name: confiture
   m_EditorClassIdentifier: 
-  Name: 
-  Mesh: {fileID: 0}
+  Name: confiture
+  MeshPrefab: {fileID: 919132149155446097, guid: 23e0b99a972d88542a76f9622b53e06a,
+    type: 3}
   Fibers: 0
-  Energy: 0
+  Energy: 49
   Protein: 0
   Water: 0
   Calcium: 0
   Fat: 0
-  Sugar: 0
+  Sugar: 12

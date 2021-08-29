@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52781881a8e37b04299c89c5d4bfdbca, type: 3}
   m_Name: bonbon
   m_EditorClassIdentifier: 
-  Name: 
-  Mesh: {fileID: 0}
+  Name: bonbon
+  MeshPrefab: {fileID: 919132149155446097, guid: f24c2b18bf4d73849bce8cade3c80fda,
+    type: 3}
   Fibers: 0
-  Energy: 0
+  Energy: 82
   Protein: 0
   Water: 0
   Calcium: 0
   Fat: 0
-  Sugar: 0
+  Sugar: 17

@@ -41,10 +41,15 @@ public class Character : MonoBehaviour
     private Aisle m_aisle = null;
     private bool m_shouldEscape = false;
     public CharacterData characterData;
-    
+
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem touchParticles;
+
     [Header("Events")]
     public UnityEvent OnEscape;
     public UnityEvent<Aisle> OnTryBuyArticle;
+
+    private Action<Vector3> onTouchGround;
 
     [HideInInspector]
     public bool CanMove = false;
@@ -66,7 +71,17 @@ public class Character : MonoBehaviour
     {
         Reset();
     }
-    
+
+    private void OnEnable()
+    {
+        onTouchGround += OnTouchGround;
+    }
+
+    private void OnDisable()
+    {
+        onTouchGround -= OnTouchGround;
+    }
+
     void GenerateRandomCharaterData()
     {
         characterData = ScriptableObject.CreateInstance<CharacterData>();
@@ -97,8 +112,10 @@ public class Character : MonoBehaviour
     {
 #if UNITY_EDITOR
         bool isClic = (!m_useMobileInput && Input.GetMouseButton(0)) || Input.touchCount == 1;        
+        bool isClicDown = (!m_useMobileInput && Input.GetMouseButtonDown(0)) || Input.touchCount == 1;        
 #elif UNITY_STANDALONE
         bool isClic = Input.GetMouseButton(0);
+        bool isClicDown = Input.GetMouseButtonDown(0));        
 #else
         bool isClic = Input.touchCount == 1;
 #endif        
@@ -133,6 +150,12 @@ public class Character : MonoBehaviour
                     Debug.Log("Should escape request"); 
                     m_shouldEscape = true;
                 }
+
+                Vector3 lDest = hit.point;
+                m_navAgent.SetDestination(lDest);
+
+                if(isClicDown)
+                    onTouchGround?.Invoke(lDest);
                 
                 m_navAgent.SetDestination(hit.point);
                 CharacterAnimator.SetBool("IsWalking", true);
@@ -179,5 +202,13 @@ public class Character : MonoBehaviour
     {
         foodItems[itemCount] = ArticleToBuy;
         itemCount++;
+    }
+
+
+    //Feedbacks
+    private void OnTouchGround(Vector3 pDest)
+    {
+        touchParticles.transform.position = pDest;
+        touchParticles.Play();
     }
 }

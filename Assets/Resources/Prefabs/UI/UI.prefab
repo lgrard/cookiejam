@@ -2205,6 +2205,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Calcium
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2403,6 +2413,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
@@ -3053,6 +3073,16 @@ PrefabInstance:
       value: 'Sugar
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
@@ -3993,6 +4023,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Protein
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4326,6 +4366,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -5.000001
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4649,6 +4699,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Protein
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
@@ -6653,6 +6713,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6851,6 +6921,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Calcium
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
@@ -7609,6 +7689,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7804,6 +7894,16 @@ PrefabInstance:
       value: 'Sugar
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
@@ -8009,6 +8109,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Energy
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8203,6 +8313,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Fat
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8391,6 +8511,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MaxValue
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 299507045867178237, guid: 365c52c43240104498be64a01ea2bf04,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 299507045867178237, guid: 365c52c43240104498be64a01ea2bf04,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1025693033191320186, guid: 365c52c43240104498be64a01ea2bf04,
         type: 3}
@@ -8667,6 +8797,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -5.000001
       objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8860,6 +9000,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Fat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498139917926996737, guid: 8ee354e255bbed949b695c43d9479bfb,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2934310070283336070, guid: 8ee354e255bbed949b695c43d9479bfb,
         type: 3}

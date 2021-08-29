@@ -57,7 +57,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foodItems = new Food[maxItems];
+        Reset();
 
         if (!characterData)
             GenerateRandomCharaterData();
@@ -152,5 +152,13 @@ public class Character : MonoBehaviour
                 m_shouldEscape = false;
             }
         }
+    }
+
+    public void Reset()
+    {
+        foodItems = new Food[maxItems];
+        itemCount = 0;
+        m_foodToBuy = null;
+        m_shouldEscape = false;
     }
 }

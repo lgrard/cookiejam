@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
 {
     [Header("Character intro settings")]
     public GameObject UICharachterIntro;
-    
-    
+    public CharacterData[] CharacterDatas;
+
     [Header("Market settings")]
     public GameObject UIMarket;
     [Tooltip("in second")]
@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
         switch (GameState)
         {
             case EGameState.CHARACTER_INTRODUCTION:
+                GameCharacter.Reset();
+                GameCharacter.characterData = CharacterDatas[Random.Range(0, CharacterDatas.Length)];
                 break;
             case EGameState.MARKET:
                 MarketTimer += Time.deltaTime;
@@ -108,6 +110,8 @@ public class GameManager : MonoBehaviour
                     tLerpScore = 0f;
                     if (++currentItem >= GameCharacter.itemCount)
                     {
+                        currentItem = 0;
+                        
                         //TODO: Remove for smooth anim
                         SetCharacterIntroGameState();
                     }
@@ -123,6 +127,7 @@ public class GameManager : MonoBehaviour
 
     public void SetMarketGameState()
     {
+        MarketTimer = 0;
         GameCharacter.enabled = true;
         SetGameState(EGameState.MARKET);
     }
@@ -135,6 +140,8 @@ public class GameManager : MonoBehaviour
     
     public void SetScoreGameState()
     {
+        ResetScoreItems();
+        
         for (int i = 0; i < GameCharacter.itemCount; i++)
         {
             ItemRotationSettings[i].rotationSpeed = Random.Range(0.4f, 0.8f);
@@ -191,5 +198,18 @@ public class GameManager : MonoBehaviour
         UICharachterIntro.SetActive(GameState == EGameState.CHARACTER_INTRODUCTION);
         UIMarket.SetActive(GameState == EGameState.MARKET);
         UIScore.SetActive(GameState == EGameState.SCORE);
+    }
+
+    void ResetScoreItems()
+    {
+        for (int i = 0; i < GameCharacter.maxItems; i++)
+        {
+            UIItemPlace[i].rotation = Quaternion.identity;
+
+            for (int childID = 0; childID < UIItemPlace[i].childCount; childID++)
+            {
+                Destroy(UIItemPlace[i].GetChild(childID));
+            }
+        }
     }
 }

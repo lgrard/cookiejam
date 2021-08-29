@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
                     }
 
                     tLerpScore += Time.deltaTime / itemGiveScoreDuration;
+                    
                     if (tLerpScore > 1f)
                         tLerpScore = 1f;
                     
@@ -152,11 +153,11 @@ public class GameManager : MonoBehaviour
                         tLerpScore);
                     FatNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFat,
                         GameCharacter.characterData.CurrentFat + GameCharacter.foodItems[currentItem].Fat, tLerpScore);
+                    
                     SugarNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentSugar,
                         GameCharacter.characterData.CurrentSugar + GameCharacter.foodItems[currentItem].Sugar,
                         tLerpScore);
-
-
+                    
                     if (tLerpScore == 1f)
                     {
                         GameCharacter.characterData.CurrentFibers = FibersNeedSliders.value;

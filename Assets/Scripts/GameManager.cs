@@ -80,11 +80,14 @@ public class GameManager : MonoBehaviour
                 TimerSilder.value = MarketTimer;
                 break;
             case EGameState.SCORE:
+                if (GameCharacter.itemCount == 0)
+                    SetCharacterIntroGameState();
+                
                 for (uint i = currentItem; i < GameCharacter.itemCount; i++)
                 {
                     UIItemPlace[i].rotation = Quaternion.Lerp(UIItemPlace[i].rotation, UIItemPlace[i].rotation * ItemRotationSettings[i].itemRotationAngle, Time.deltaTime * ItemRotationSettings[i].rotationSpeed);
                 }
-                
+
                 tLerpScore += Time.deltaTime / itemGiveScoreDuration;
                 if (tLerpScore > 1f)
                     tLerpScore = 1f;
@@ -96,6 +99,7 @@ public class GameManager : MonoBehaviour
                 CalciumNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentCalcium, GameCharacter.characterData.CurrentCalcium + GameCharacter.foodItems[currentItem].Calcium, tLerpScore);
                 FatNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFat, GameCharacter.characterData.CurrentFat + GameCharacter.foodItems[currentItem].Fat, tLerpScore);
                 SugarNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentSugar, GameCharacter.characterData.CurrentSugar + GameCharacter.foodItems[currentItem].Sugar, tLerpScore);
+                
 
                 if (tLerpScore == 1f)
                 {
@@ -157,6 +161,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoresSliders()
     {
+        Debug.Log(GameCharacter.characterData.FibersNeed);
         FibersNeedSliders.maxValue = GameCharacter.characterData.FibersNeed;
         FibersNeedSliders.value = GameCharacter.characterData.CurrentFibers;
         

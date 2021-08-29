@@ -96,7 +96,7 @@ public class CharacterDataEditor : Editor
 
         {
             EditorGUILayout.BeginHorizontal();
-            const float max = 2300f;
+            const float max = 3000f;
             Target.WaterNeed = EditorGUILayout.Slider(new GUIContent("WaterNeed", "mL"), Target.WaterNeed, 0f, max);
             
             GUI.contentColor = GetColorStepOfRangedValue(Target.WaterNeed, max);
@@ -138,7 +138,17 @@ public class CharacterDataEditor : Editor
             EditorGUILayout.EndHorizontal();
         }
         
-        
+        if (GUILayout.Button("Set ideal values"))
+        {
+            Target.ProteinNeed = 60;
+            Target.FatNeed = 75;
+            Target.SugarNeed = 275;
+            Target.FibersNeed = 45;
+            Target.WaterNeed = 2500;
+            Target.CalciumNeed = 1200;
+            Target.EnergyNeed = 2000;
+        }
+
         Header("Current need");
         {
             EditorGUILayout.BeginHorizontal();

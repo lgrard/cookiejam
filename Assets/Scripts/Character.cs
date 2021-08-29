@@ -67,25 +67,25 @@ public class Character : MonoBehaviour
     void GenerateRandomCharaterData()
     {
         characterData = new CharacterData();
-        characterData.EnergyNeed = Random.Range(MIN_ENERGY_NEED, MAX_ENERGY_NEED);
+        characterData.EnergyNeed = MAX_ENERGY_NEED;
         characterData.CurrentEnergy = Random.Range(MIN_ENERGY_NEED, characterData.EnergyNeed);
     
-        characterData.FibersNeed = Random.Range(MIN_FIBER_NEED, MAX_FIBER_NEED);
+        characterData.FibersNeed = MAX_FIBER_NEED;
         characterData.CurrentFibers = Random.Range(MIN_FIBER_NEED, characterData.FibersNeed);
         
-        characterData.ProteinNeed = Random.Range(MIN_PROTEIN_NEED, MAX_PROTEIN_NEED);
+        characterData.ProteinNeed = MAX_PROTEIN_NEED;
         characterData.CurrentProtein = Random.Range(MIN_PROTEIN_NEED, characterData.ProteinNeed);
 
-        characterData.WaterNeed = Random.Range(MIN_WATER_NEED, MAX_WATER_NEED);
+        characterData.WaterNeed = MAX_WATER_NEED;
         characterData.CurrentWater = Random.Range(MIN_WATER_NEED, characterData.WaterNeed);
     
-        characterData.CalciumNeed = Random.Range(MIN_CALCIUM_NEED, MAX_CALCIUM_NEED);
+        characterData.CalciumNeed = MAX_CALCIUM_NEED;
         characterData.CurrentCalcium = Random.Range(MIN_CALCIUM_NEED, characterData.CalciumNeed);
     
-        characterData.FatNeed = Random.Range(MIN_FAT_NEED, MAX_FAT_NEED);
+        characterData.FatNeed = MAX_FAT_NEED;
         characterData.CurrentFat = Random.Range(MIN_FAT_NEED, characterData.FatNeed);
     
-        characterData.SugarNeed = Random.Range(MIN_SUGAR_NEED, MAX_SUGAR_NEED);
+        characterData.SugarNeed = MAX_SUGAR_NEED;
         characterData.CurrentSugar = Random.Range(MIN_SUGAR_NEED, characterData.SugarNeed);
     }
     

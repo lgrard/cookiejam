@@ -4,7 +4,7 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     [Header("Identity")]
-    //public string Name;
+    public string Name;
     public GameObject MeshPrefab;
 
     [Header("Daily need")]
@@ -26,9 +26,9 @@ public class CharacterData : ScriptableObject
     public float CurrentSugar;
 
 
-    //[ContextMenu("Use file name as name")]
-    //public void FileNameToNameField()
-    //{
-    //    Name = Path.GetFileNameWithoutExtension( AssetDatabase.GetAssetPath(this));
-    //}
+    // [ContextMenu("SetIdealValues")]
+    // public void FileNameToNameField()
+    // {
+    //     Name = Path.GetFileNameWithoutExtension( AssetDatabase.GetAssetPath(this));
+    // }
 }

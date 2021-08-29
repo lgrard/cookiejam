@@ -74,15 +74,15 @@ public class GameManager : MonoBehaviour
         Music.Play();
     }
 
-    void OpenArticlePopUp(Food Article)
+    void OpenArticlePopUp(Aisle aisle)
     {
-        ArticlePanel.RegisterArticleToBuyAndOpenPanel(Article);
+        ArticlePanel.RegisterArticleToBuyAndOpenPanel(aisle);
         GameCharacter.CanMove = false;
     }
     
-    void BuyItemAndCloseArticlePopUp(Food Article)
+    void BuyItemAndCloseArticlePopUp(Aisle aisle)
     {
-        GameCharacter.BuyArticle(Article);
+        GameCharacter.BuyArticle(aisle.PickFood());
         CloseArticlePopUp();
     }
 

@@ -7,24 +7,24 @@ using UnityEngine.UI;
 
 public class ArticlePanelController : MonoBehaviour
 {
-    private Food ArticleToBuy;
+    private Aisle AisleToBuy;
     public GameObject Panel;
     public Text ItemName;
     public Button ValidateButton;
     public Button CancelButton;
-    public UnityEvent<Food> OnBuyItem;
+    public UnityEvent<Aisle> OnBuyItem;
     public UnityEvent OnClose;
     
-    public void RegisterArticleToBuyAndOpenPanel(Food NewArticleToBuy)
+    public void RegisterArticleToBuyAndOpenPanel(Aisle NewAisle)
     {
         OpenPanel();
-        ArticleToBuy = NewArticleToBuy;
-        ItemName.text = ArticleToBuy.Name;
+        AisleToBuy = NewAisle;
+        ItemName.text = AisleToBuy.food.Name;
     }
 
     public void BuyItem()
     {
-        OnBuyItem?.Invoke(ArticleToBuy);
+        OnBuyItem?.Invoke(AisleToBuy);
         ClosePanel();
     }
     

@@ -37,13 +37,14 @@ public class Character : MonoBehaviour
     public Food[] foodItems;
     
     private NavMeshAgent m_navAgent;
-    private Food m_foodToBuy = null;
+    //private Food m_foodToBuy = null;
+    private Aisle m_aisle = null;
     private bool m_shouldEscape = false;
     public CharacterData characterData;
     
     [Header("Events")]
     public UnityEvent OnEscape;
-    public UnityEvent<Food> OnTryBuyArticle;
+    public UnityEvent<Aisle> OnTryBuyArticle;
     public UnityEvent OnWalkStart;
     public UnityEvent OnWalkEnd;
 
@@ -109,15 +110,18 @@ public class Character : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                m_foodToBuy = null;
+                m_aisle = null;
+                //m_foodToBuy = null;
                 m_shouldEscape = false;
                 
                 if (hit.transform.tag == "aisle")
                 {
                     if (itemCount < maxItems)
                     {
-                        m_foodToBuy = hit.transform.gameObject.GetComponent<Aisle>().PickFood();
-                        Debug.Log("Food select : " + m_foodToBuy.ToString());
+                        //m_foodToBuy = hit.transform.gameObject.GetComponent<Aisle>().PickFood();
+                        m_aisle = hit.transform.gameObject.GetComponent<Aisle>();
+                        //Debug.Log("Food select : " + m_foodToBuy.ToString());
+                        Debug.Log("Aisle select : " + m_aisle.ToString());
                     }
                     else
                     {
@@ -141,11 +145,13 @@ public class Character : MonoBehaviour
             m_navAgent.remainingDistance <= m_navAgent.stoppingDistance &&
             (!m_navAgent.hasPath || m_navAgent.velocity.sqrMagnitude == 0f))
         {
-            if (m_foodToBuy)
+            if (m_aisle)
             {
-                Debug.Log("Try to buy food : " + m_foodToBuy.ToString());
-                OnTryBuyArticle?.Invoke(m_foodToBuy);
-                m_foodToBuy = null;
+                Debug.Log("Try to buy food at aisle : " + m_aisle.food.ToString());
+                //Debug.Log("Try to buy food : " + m_foodToBuy.ToString());
+                OnTryBuyArticle?.Invoke(m_aisle);
+                m_aisle = null;
+                //m_foodToBuy = null;
             }
             else if(m_shouldEscape)
             {
@@ -162,7 +168,8 @@ public class Character : MonoBehaviour
     {
         foodItems = new Food[maxItems];
         itemCount = 0;
-        m_foodToBuy = null;
+        //m_foodToBuy = null;
+        m_aisle = null;
         m_shouldEscape = false;
     }
 

@@ -1,11 +1,26 @@
 fileFormatVersion: 2
-guid: ab2ce201e371bc84d927a6e6c5bbc328
+guid: 9c20aef51b6b0db4aa2eb5c1f439b21f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -203655887218126122
-    second: mixamo.com
+      74: -1671278833298630445
+    second: caddies|PlanAction
+  - first:
+      74: 5255728898057688239
+    second: metarig|0T_Pose
+  - first:
+      74: -2846923609946080908
+    second: metarig|Pick
+  - first:
+      74: -4683221374995547045
+    second: metarig|PlanAction
+  - first:
+      74: -8656179308306333910
+    second: metarig|WalkEnd
+  - first:
+      74: 6196783858409495519
+    second: metarig|WalkStart
   externalObjects: {}
   materials:
     materialImportMode: 2

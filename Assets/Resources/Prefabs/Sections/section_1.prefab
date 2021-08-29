@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 4081724977856272466}
   - {fileID: 4081724976718650801}
   - {fileID: 6688280413324602868}
+  foodList: {fileID: 11400000, guid: a4be5be829861f14c88da9c6fe8f742d, type: 2}
 --- !u!1001 &3596140909603089206
 PrefabInstance:
   m_ObjectHideFlags: 0

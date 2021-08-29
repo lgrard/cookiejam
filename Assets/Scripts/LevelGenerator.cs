@@ -25,6 +25,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void InitLevelContainer() => levelContainer = new GameObject("LevelContainer").transform;
 
+
     /// Generate a random square disposition for a given size
     /// <param name="pSize">Number of side to generate</param>
     private void GenerateLevel(int pSize)

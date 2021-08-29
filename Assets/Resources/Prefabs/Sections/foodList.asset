@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167cc4d88a288f548a30c2f41efde8ae, type: 3}
+  m_Name: foodList
+  m_EditorClassIdentifier: 
+  fruitsVegetables:
+  - {fileID: 11400000, guid: aed7d2f900a5e2a4cbc9894b1ee2606d, type: 2}
+  - {fileID: 11400000, guid: 0eeaf342880b19240a63ea6b9b021726, type: 2}
+  - {fileID: 11400000, guid: 5aac63b3c127c494c9dc81649797d4df, type: 2}
+  - {fileID: 11400000, guid: d241dce929518374faa86074b9a9674e, type: 2}
+  - {fileID: 11400000, guid: def50b70db9f0ad4ea5557d2a929a27b, type: 2}
+  - {fileID: 11400000, guid: 453427ecc8ce86e4cba1cdb262b0a6c9, type: 2}
+  hamFishEggs:
+  - {fileID: 11400000, guid: 0959ca76db9a8ae4bb7bbddc69eb7b91, type: 2}
+  - {fileID: 11400000, guid: 464fd08c3c8b49e46b90836714439bb6, type: 2}
+  - {fileID: 11400000, guid: a5c237e6b1c9d7f40861c8fd4916a29a, type: 2}
+  - {fileID: 11400000, guid: 2266a300e9a645349839bdfb6f459fb2, type: 2}
+  - {fileID: 11400000, guid: f12678d4c3fbec64ca0df39ca0fab333, type: 2}
+  - {fileID: 11400000, guid: 453f07a382f1e864f936af7a781c9412, type: 2}
+  dairy:
+  - {fileID: 11400000, guid: 5ef8416919c7083419a17fa583c4024b, type: 2}
+  - {fileID: 11400000, guid: 0daf3badd194c454092a65325b1cc010, type: 2}
+  - {fileID: 11400000, guid: eb85fb42da84d27498cfbaca635ef03f, type: 2}
+  starchy:
+  - {fileID: 11400000, guid: 9d887431a156ba541a5ebc37b9586c41, type: 2}
+  - {fileID: 11400000, guid: e596cb5d975f55641a1838ee777bbbe0, type: 2}
+  - {fileID: 11400000, guid: d33532a732917084bbf105eeb3bf664a, type: 2}
+  - {fileID: 11400000, guid: 6519fae5437372443b3762f594d8b2e1, type: 2}
+  sugar:
+  - {fileID: 11400000, guid: ab0a9ef38fbe3f54da81d5a8b80aaeaf, type: 2}
+  - {fileID: 11400000, guid: c47494d683f050c439b6d24c17f97986, type: 2}
+  - {fileID: 11400000, guid: a3dbe669a0638724fbdfb977b64d9e73, type: 2}
+  beverage:
+  - {fileID: 11400000, guid: 3f87f3af282fcbb4f91657f01a7b4e5d, type: 2}

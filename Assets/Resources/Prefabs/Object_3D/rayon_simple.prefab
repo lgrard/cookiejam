@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2993708255982958511}
   - component: {fileID: 6025328927762767809}
   - component: {fileID: 670258059508069220}
+  - component: {fileID: 4548280168750180901}
   m_Layer: 0
   m_Name: rayon_simple
   m_TagString: aisle
@@ -109,3 +110,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: {fileID: 11400000, guid: 0052c269da636444ba6356cca5846f9a, type: 2}
+--- !u!208 &4548280168750180901
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642063805525726842}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2, y: 0.5, z: 2.05}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -1.5, z: 2}
+  m_TimeToStationary: 0.5

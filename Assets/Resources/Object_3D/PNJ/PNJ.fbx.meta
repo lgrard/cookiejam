@@ -21,6 +21,12 @@ ModelImporter:
   - first:
       74: 6196783858409495519
     second: metarig|WalkStart
+  - first:
+      74: 5382882440560432932
+    second: metarig|WalkIdle
+  - first:
+      74: -742068168081201207
+    second: metarig|WalkLoop
   externalObjects: {}
   materials:
     materialImportMode: 2

@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
         {
             case EGameState.CHARACTER_INTRODUCTION:
                 GameCharacter.Reset();
-                GameCharacter.characterData = CharacterDatas[Random.Range(0, CharacterDatas.Length)];
                 break;
             case EGameState.MARKET:
                 MarketTimer += Time.deltaTime;
@@ -126,7 +125,7 @@ public class GameManager : MonoBehaviour
                     tLerpScore += Time.deltaTime / itemGiveScoreDuration;
                     if (tLerpScore > 1f)
                         tLerpScore = 1f;
-
+                    
                     FibersNeedSliders.value = Mathf.Lerp(GameCharacter.characterData.CurrentFibers,
                         GameCharacter.characterData.CurrentFibers + GameCharacter.foodItems[currentItem].Fibers,
                         tLerpScore);
@@ -191,6 +190,7 @@ public class GameManager : MonoBehaviour
         AtmosphereSound.Stop();
         GameCharacter.CanMove = false;
         SetGameState(EGameState.CHARACTER_INTRODUCTION);
+        GameCharacter.characterData = CharacterDatas[Random.Range(0, CharacterDatas.Length)];
     }
     
     public void SetScoreGameState()

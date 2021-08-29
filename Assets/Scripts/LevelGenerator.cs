@@ -23,7 +23,11 @@ public class LevelGenerator : MonoBehaviour
         UpdateNavigation();
     }
 
-    private void InitLevelContainer() => levelContainer = new GameObject("LevelContainer").transform;
+    private void InitLevelContainer()
+    {
+        levelContainer = new GameObject("LevelContainer").transform;
+        levelContainer.parent = transform;
+    }
 
 
     /// Generate a random square disposition for a given size

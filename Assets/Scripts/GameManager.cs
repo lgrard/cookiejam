@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum EGameState
 {
@@ -12,29 +11,43 @@ public enum EGameState
     COUNT
 }
 
+public struct ItemRotationSetting
+{
+    public float rotationSpeed;
+    public Quaternion itemRotationAngle;
+};
+
 public class GameManager : MonoBehaviour
 {
-    [Header("Market timer")]
+    [Header("Character intro settings")]
+    public GameObject UICharachterIntro;
+    
+    
+    [Header("Market settings")]
+    public GameObject UIMarket;
     [Tooltip("in second")]
     public float MaxMarketTimer = 30f;
     private float MarketTimer = 0f;
     public Slider TimerSilder;
-
-
+    public Character GameCharacter;
+    
+    
+    [Header("Score setting")]
+    public GameObject UIScore;
+    private ItemRotationSetting[] ItemRotationSettings;
+    public Transform[] UIItemPlace;
+    
+    
     [Header("Game setting")]
     private EGameState GameState = EGameState.CHARACTER_INTRODUCTION;
 
-    public GameObject UICharachterIntro;
-    public GameObject UIMarket;
-    public GameObject UIScore;
-
-    
     
     // Start is called before the first frame update
     void Start()
     {
         SwitchUIWithGameState();
         TimerSilder.maxValue = MaxMarketTimer;
+        ItemRotationSettings = new ItemRotationSetting[GameCharacter.maxItems];
     }
 
     // Update is called once per frame
@@ -52,9 +65,12 @@ public class GameManager : MonoBehaviour
                     MarketTimer = 0;
                 }
                 TimerSilder.value = MarketTimer;
-
                 break;
             case EGameState.SCORE:
+                for (int i = 0; i < GameCharacter.itemCount; i++)
+                {
+                    UIItemPlace[i].rotation = Quaternion.Lerp(UIItemPlace[i].rotation, UIItemPlace[i].rotation * ItemRotationSettings[i].itemRotationAngle, Time.deltaTime * ItemRotationSettings[i].rotationSpeed);
+                }
                 break;
             case EGameState.COUNT:
                 break;
@@ -65,17 +81,27 @@ public class GameManager : MonoBehaviour
 
     public void SetMarketGameState()
     {
+        GameCharacter.enabled = true;
         SetGameState(EGameState.MARKET);
     }
     
     public void SetCharacterIntroGameState()
     {
+        GameCharacter.enabled = false;
         SetGameState(EGameState.CHARACTER_INTRODUCTION);
     }
     
     public void SetScoreGameState()
     {
+        for (int i = 0; i < GameCharacter.itemCount; i++)
+        {
+            ItemRotationSettings[i].rotationSpeed = Random.Range(0.4f, 0.8f);
+            ItemRotationSettings[i].itemRotationAngle = Random.rotation;
+        }
+
+        GameCharacter.enabled = false;
         SetGameState(EGameState.SCORE);
+        AddItemToScore();
     }
     
     void SetGameState(EGameState NewGameState)
@@ -83,7 +109,14 @@ public class GameManager : MonoBehaviour
         GameState = NewGameState;
         SwitchUIWithGameState();
     }
-    
+
+    void AddItemToScore()
+    {
+        for (int i = 0; i < GameCharacter.itemCount; i++)
+        {
+             Instantiate(GameCharacter.foodItems[i].MeshPrefab, UIItemPlace[i]);
+        }
+    }
     
     void SwitchUIWithGameState()
     {

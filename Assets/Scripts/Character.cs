@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public Camera cam;
 
     public uint maxItems = 4;
-    private uint itemCount = 0;
+    public uint itemCount = 0;
     public Food[] foodItems; 
     private NavMeshAgent navAgent;
     private Food foodToBuy = null;

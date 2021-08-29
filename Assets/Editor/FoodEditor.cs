@@ -29,10 +29,10 @@ public class FoodEditor : Editor
             bgColor.normal.background = previewBackgroundTexture;
 
             //display the mesh
-            if (Target.Mesh != null)
+            if (Target.MeshPrefab != null)
             {
                 if (gameObjectEditor == null)
-                    gameObjectEditor = Editor.CreateEditor(Target.Mesh);
+                    gameObjectEditor = Editor.CreateEditor(Target.MeshPrefab);
 
                 gameObjectEditor.OnInteractivePreviewGUI(GUILayoutUtility.GetRect(100, 100), bgColor);
             }
@@ -50,11 +50,11 @@ public class FoodEditor : Editor
         
         {
             EditorGUI.BeginChangeCheck();
-            Target.Mesh = (Mesh)EditorGUILayout.ObjectField("Mesh" ,Target.Mesh, typeof(Mesh), true);
+            Target.MeshPrefab = (GameObject)EditorGUILayout.ObjectField("Mesh" ,Target.MeshPrefab, typeof(GameObject), true);
 
             if (EditorGUI.EndChangeCheck())
             {
-                gameObjectEditor = Editor.CreateEditor(Target.Mesh);
+                gameObjectEditor = Editor.CreateEditor(Target.MeshPrefab);
             }
         }
         EditorGUILayout.EndVertical();

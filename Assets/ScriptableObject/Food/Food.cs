@@ -7,7 +7,7 @@ using UnityEngine;
 public class Food : ScriptableObject
 {
     public string Name;
-    public Mesh Mesh;
+    public GameObject MeshPrefab;
 
     public float Fibers;
     public float Energy;

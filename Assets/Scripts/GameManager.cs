@@ -161,7 +161,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoresSliders()
     {
-        Debug.Log(GameCharacter.characterData.FibersNeed);
         FibersNeedSliders.maxValue = GameCharacter.characterData.FibersNeed;
         FibersNeedSliders.value = GameCharacter.characterData.CurrentFibers;
         

@@ -41,10 +41,14 @@ public class Character : MonoBehaviour
     private bool m_shouldEscape = false;
     public CharacterData characterData;
     
+    [Header("Events")]
     public UnityEvent OnEscape;
     public UnityEvent<Food> OnTryBuyArticle;
+    public UnityEvent OnWalkStart;
+    public UnityEvent OnWalkEnd;
+
+    [HideInInspector]
     public bool CanMove = false;
-    
 
 #if UNITY_EDITOR
     [Header("Debug")]
@@ -127,6 +131,7 @@ public class Character : MonoBehaviour
                 }
                 
                 m_navAgent.SetDestination(hit.point);
+                OnWalkStart?.Invoke();
                 Debug.DrawLine(cam.transform.position, hit.point, Color.green, 1f);
             }
         }
@@ -148,6 +153,8 @@ public class Character : MonoBehaviour
                 OnEscape?.Invoke();
                 m_shouldEscape = false;
             }
+
+            OnWalkEnd?.Invoke();
         }
     }
 
@@ -161,7 +168,6 @@ public class Character : MonoBehaviour
 
     public void BuyArticle(Food ArticleToBuy)
     {
-        Debug.Log(ArticleToBuy.ToString() +  itemCount + " " + foodItems.Length);
         foodItems[itemCount] = ArticleToBuy;
         itemCount++;
     }

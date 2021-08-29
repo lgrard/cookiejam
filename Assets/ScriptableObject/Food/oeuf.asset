@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52781881a8e37b04299c89c5d4bfdbca, type: 3}
-  m_Name: Banana
+  m_Name: oeuf
   m_EditorClassIdentifier: 
-  Name: 
-  Mesh: {fileID: 0}
+  Name: oeuf
+  MeshPrefab: {fileID: 919132149155446097, guid: bab4e13ca9ab50d40b8f5fc88664855f,
+    type: 3}
   Fibers: 0
-  Energy: 0
-  Protein: 0
-  Water: 0
-  Calcium: 0
-  Fat: 0
+  Energy: 161
+  Protein: 16
+  Water: 92
+  Calcium: 49
+  Fat: 10
   Sugar: 0

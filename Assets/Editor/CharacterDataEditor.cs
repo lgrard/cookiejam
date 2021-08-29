@@ -226,6 +226,13 @@ public class CharacterDataEditor : Editor
             GUI.contentColor = Color.white;
             EditorGUILayout.EndHorizontal();
         }
+        
+        {
+            if (GUILayout.Button("Save"))
+            {
+                EditorUtility.SetDirty(Target);
+            }
+        }
     }
 
     Color GetColorStepOfRangedValue(float value, float max)

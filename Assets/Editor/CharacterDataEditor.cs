@@ -140,13 +140,13 @@ public class CharacterDataEditor : Editor
         
         if (GUILayout.Button("Set ideal values"))
         {
-            Target.ProteinNeed = 60;
-            Target.FatNeed = 75;
-            Target.SugarNeed = 275;
-            Target.FibersNeed = 45;
-            Target.WaterNeed = 2500;
-            Target.CalciumNeed = 1200;
-            Target.EnergyNeed = 2000;
+            Target.ProteinNeed = 60 / 3f;
+            Target.FatNeed = 75 / 3f;
+            Target.SugarNeed = 275 / 3f;
+            Target.FibersNeed = 45 / 3f;
+            Target.WaterNeed = 2500 / 3f;
+            Target.CalciumNeed = 1200 / 3f;
+            Target.EnergyNeed = 2000 / 3f;
         }
 
         Header("Current need");

@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   MeshPrefab: {fileID: 0}
-  FibersNeed: 45
-  EnergyNeed: 2000
-  ProteinNeed: 60
-  WaterNeed: 2500
-  CalciumNeed: 1200
-  FatNeed: 75
-  SugarNeed: 275
-  CurrentFibers: 15
-  CurrentEnergy: 1000
-  CurrentProtein: 10
-  CurrentWater: 1500
-  CurrentCalcium: 300
-  CurrentFat: 60
-  CurrentSugar: 150
+  FibersNeed: 15
+  EnergyNeed: 666.6667
+  ProteinNeed: 20
+  WaterNeed: 833.3333
+  CalciumNeed: 400
+  FatNeed: 25
+  SugarNeed: 91.666664
+  CurrentFibers: 5
+  CurrentEnergy: 333.33334
+  CurrentProtein: 3.3333333
+  CurrentWater: 500
+  CurrentCalcium: 100
+  CurrentFat: 20
+  CurrentSugar: 50

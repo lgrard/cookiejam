@@ -5402,7 +5402,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UICharachterIntro: {fileID: 2882675670805177992}
   CharacterDatas:
-  - {fileID: 11400000, guid: 39ae44a44e9483641803c2632a6812a8, type: 2}
+  - {fileID: 11400000, guid: 327f5e612e69e0b498243cf9046bfd26, type: 2}
+  - {fileID: 11400000, guid: a7bcea50d7f6a8a48ae86c40d2cdbaa5, type: 2}
+  - {fileID: 11400000, guid: c2aea77cf7a74fe44a4a3173608750ca, type: 2}
+  - {fileID: 11400000, guid: e35ca6ff63fef1d4a89baeccddc56c3b, type: 2}
   UIMarket: {fileID: 2882675671228937651}
   MaxMarketTimer: 30
   TimerSilder: {fileID: 2882675670695980373}

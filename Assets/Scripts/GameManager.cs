@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
 
             for (int childID = 0; childID < UIItemPlace[i].childCount; childID++)
             {
-                Destroy(UIItemPlace[i].GetChild(childID));
+                Destroy(UIItemPlace[i].GetChild(childID).gameObject);
             }
         }
     }

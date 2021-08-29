@@ -58,15 +58,12 @@ public class Character : MonoBehaviour
     void Start()
     {
         Reset();
-
-        if (!characterData)
-            GenerateRandomCharaterData();
     }
 
 
     void GenerateRandomCharaterData()
     {
-        characterData = new CharacterData();
+        characterData = ScriptableObject.CreateInstance<CharacterData>();
         characterData.EnergyNeed = MAX_ENERGY_NEED;
         characterData.CurrentEnergy = Random.Range(MIN_ENERGY_NEED, characterData.EnergyNeed);
     

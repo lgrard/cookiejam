@@ -22,3 +22,4 @@ MonoBehaviour:
   Calcium: 110
   Fat: 0
   Sugar: 0
+  SpawnRate: 0.05

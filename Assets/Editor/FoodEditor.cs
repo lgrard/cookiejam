@@ -140,6 +140,12 @@ public class FoodEditor : Editor
         }
 
         {
+            EditorGUILayout.Space(20f);
+            Target.SpawnRate = EditorGUILayout.Slider(new GUIContent("Spawn rate"),Target.SpawnRate, 0,1);
+        }
+
+        {
+            EditorGUILayout.Space(20f);
             if (GUILayout.Button("Save"))
             {
                 EditorUtility.SetDirty(Target);

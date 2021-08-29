@@ -16,6 +16,8 @@ public class Food : ScriptableObject
     public float Calcium;
     public float Fat;
     public float Sugar;
+    
+    public float SpawnRate;
 
 
     //[ContextMenu("Use file name as name")]

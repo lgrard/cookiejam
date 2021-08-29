@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52781881a8e37b04299c89c5d4bfdbca, type: 3}
   m_Name: riz
   m_EditorClassIdentifier: 
-  Name: 
-  Mesh: {fileID: 0}
+  Name: riz
+  MeshPrefab: {fileID: 919132149155446097, guid: 4a850266fc9c99a4d8fee8c376cb77ed,
+    type: 3}
   Fibers: 0
-  Energy: 0
-  Protein: 0
-  Water: 0
-  Calcium: 0
+  Energy: 218
+  Protein: 5
+  Water: 96
+  Calcium: 21
   Fat: 0
-  Sugar: 0
+  Sugar: 48
